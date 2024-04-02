@@ -7,7 +7,7 @@ export default class User
         private firstname: string,
         private lastname: string,
         private phone: string,
-        private weigth: number | null,
+        private weight: number | null,
         private size: number | null,
         private imageUrl: string | null,
         private roles: string[]
@@ -37,8 +37,8 @@ export default class User
         return this.phone;
     }
 
-    public getWeigth() {
-        return this.weigth;
+    public getWeight() {
+        return this.weight;
     }
 
     public getSize() {

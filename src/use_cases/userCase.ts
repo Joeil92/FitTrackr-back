@@ -29,7 +29,7 @@ export default class UserCase {
             user.firstname,
             user.lastname,
             user.phone,
-            user.weigth || null,
+            user.weight || null,
             user.size || null,
             user.imageUrl || null,
             ['ROLE_USER']

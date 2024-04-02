@@ -2,11 +2,10 @@ import Workout from "@FitTrackr/models/workout";
 import WorkoutRepository from "@FitTrackr/repositories/workout/workoutRepository";
 import { nbUser } from "./UserFixtures";
 import Fixture from "./fixture"
-import { EntityFixture } from "./types/EntityFixture.interface";
 
 export const nbWorkout = 150;
 
-export default class WorkoutFixtures extends Fixture implements EntityFixture
+export default class WorkoutFixtures extends Fixture implements Fixture
 {
     constructor(
         private repository = new WorkoutRepository()

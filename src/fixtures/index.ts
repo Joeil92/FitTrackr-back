@@ -7,7 +7,7 @@ const fixtures = [
 ]
 
 function exitProcess(exitCode: number): void {
-    console.log('Fixtures added successfully!');
+    console.log('Fixtures added !');
     process.exit(exitCode);
 }
 

@@ -7,7 +7,7 @@ export default class UserQueries
         firstname,
         lastname,
         phone,
-        weigth,
+        weight,
         size,
         imageUrl,
         roles
@@ -27,7 +27,7 @@ export default class UserQueries
     firstname,
     lastname,
     phone,
-    weigth,
+    weight,
     size,
     imageUrl,
     roles
@@ -40,7 +40,7 @@ export default class UserQueries
     firstname,
     lastname,
     phone,
-    weigth,
+    weight,
     size,
     imageUrl,
     roles

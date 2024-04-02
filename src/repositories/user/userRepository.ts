@@ -19,7 +19,7 @@ export default class UserRepository
                 user.getFirstname(),
                 user.getLastname(),
                 user.getPhone(),
-                user.getWeigth(),
+                user.getWeight(),
                 user.getSize(),
                 user.getImageUrl(),
                 user.getRoles()

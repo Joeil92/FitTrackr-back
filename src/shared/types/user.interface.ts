@@ -5,7 +5,7 @@ export interface UserBody {
     firstname: string
     lastname: string
     phone: string
-    weigth?: number
+    weight?: number
     size?: number
     imageUrl?: string
     roles?: string[]

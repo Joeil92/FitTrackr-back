@@ -46,7 +46,7 @@ export default class UserRouter {
          *                              type: string
          *                          phone:
          *                              type: string 
-         *                          weigth:
+         *                          weight:
          *                              type: string
          *                          size:
          *                              type: string

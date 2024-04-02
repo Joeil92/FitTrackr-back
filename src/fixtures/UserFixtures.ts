@@ -2,11 +2,10 @@ import User from "@FitTrackr/models/user";
 import Fixture from "./fixture";
 import AuthService from "@FitTrackr/services/authService";
 import UserRepository from "@FitTrackr/repositories/user/userRepository";
-import { EntityFixture } from "./types/EntityFixture.interface";
 
 export const nbUser = 100;
 
-export default class UserFixtures extends Fixture implements EntityFixture
+export default class UserFixtures extends Fixture implements Fixture
 {
     constructor(
         private repository = new UserRepository(),
