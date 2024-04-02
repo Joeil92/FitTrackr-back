@@ -4,10 +4,10 @@ services:
   database:
     image: mariadb
     restart: always
-    container_name: sport_db
+    container_name: fit_db
     environment:
       MARIADB_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sport
+      MYSQL_DATABASE: fittrackr_db
     volumes:
       - ./src/migration/initial_table.sql:/docker-entrypoint-initdb.d/initial_table.sql
     ports:
@@ -15,7 +15,7 @@ services:
   phpMyAdmin:
     image: phpmyadmin
     restart: always
-    container_name: sport_phpmyadmin
+    container_name: fit_phpmyadmin
     depends_on:
       - database
     ports:
