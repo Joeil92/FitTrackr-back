@@ -52,7 +52,7 @@ export default class ExerciseRouter {
          *   summary: Get all exercises
          *   responses:
          *    200:
-         *     description: Retrieve user  
+         *     description: Retrieve exercises  
          */
         router.route('/').get(authMiddleware, controller.findAll);
 
@@ -72,7 +72,9 @@ export default class ExerciseRouter {
          *     responses:
          *      200:
          *          description: Retrieve exercise  
-         */
+        */
         router.route('/:id').get(authMiddleware, controller.findById);
+
+        return router;
     }
 }

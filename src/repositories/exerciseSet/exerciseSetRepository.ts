@@ -1,24 +1,24 @@
 import pool from "@FitTrackr/src/config/database";
-import Exercise from "@FitTrackr/src/models/exercise";
-import ExerciseQueries from "./queries";
+import ExerciseSetQueries from "./queries";
+import ExerciseSet from "@FitTrackr/src/models/exerciseSet";
 
-export default class ExerciseRepository {
-    private readonly queries = new ExerciseQueries();
+export default class ExerciseSetRepository 
+{
+    private readonly queries = new ExerciseSetQueries();
 
-    public async add(exercise: Exercise) {
+    public async add(set: ExerciseSet) {
         const connect = await pool.getConnection();
         const sql = this.queries.add;
 
         try {
             return await connect.query(sql, [
-                exercise.getName(),
-                exercise.getDescription(),
-                exercise.getMuscularGroup(),
-                exercise.getCreatedBy()
+                set.getRepetitions(),
+                set.getRestPeriod(),
+                set.getWorkoutExercise()
             ]);
         } catch (error) {
             console.log(error);
-            throw new Error('error to querying table : Exercise');
+            throw new Error('Error to querying table exercise_set');
         } finally {
             await connect.end();
         }
@@ -32,21 +32,21 @@ export default class ExerciseRepository {
             return await connect.query(sql);
         } catch (error) {
             console.log(error);
-            throw new Error('error to querying table : Exercise');
+            throw new Error('Error to querying table exercise_set');
         } finally {
             await connect.end();
         }
     }
 
-    public async findById(exerciseId: string) {
+    public async findById(setId: string) {
         const connect = await pool.getConnection();
         const sql = this.queries.findById;
 
         try {
-            return await connect.query(sql, exerciseId);
+            return await connect.query(sql, setId);
         } catch (error) {
             console.log(error);
-            throw new Error('error to querying table : Exercise');
+            throw new Error('Error to querying table exercise_set');
         } finally {
             await connect.end();
         }

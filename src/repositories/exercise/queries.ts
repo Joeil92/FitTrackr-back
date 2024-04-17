@@ -3,8 +3,9 @@ export default class ExerciseQueries {
         INSERT INTO exercise(
             name,
             description,
-            muscular_group_id
-        ) VALUES(?, ?, ?)`;
+            muscular_group_id,
+            created_by
+        ) VALUES(?, ?, ?, ?)`;
 
     public readonly findAll = `
         SELECT

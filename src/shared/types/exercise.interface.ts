@@ -3,4 +3,5 @@ export interface ExerciseBody {
     name: string
     description: string
     muscular_group: number
+    created_by: number | null
 }

@@ -4,7 +4,8 @@ export default class Exercise
         private id: number | null,
         private name: string,
         private description: string,
-        private muscularGroup: number
+        private muscularGroup: number,
+        private createdBy: number | null
     ) {}
 
     public getId() {
@@ -21,5 +22,9 @@ export default class Exercise
 
     public getMuscularGroup() {
         return this.muscularGroup;
+    }
+
+    public getCreatedBy() {
+        return this.createdBy;
     }
 }

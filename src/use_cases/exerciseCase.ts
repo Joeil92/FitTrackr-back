@@ -14,7 +14,8 @@ export default class ExerciseCase {
             null,
             exercise.name,
             exercise.description,
-            exercise.muscular_group
+            exercise.muscular_group,
+            exercise.created_by || null
         );
 
         return await this.repository.add(newExercise)
