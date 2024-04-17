@@ -1,6 +1,6 @@
 import Workout from "@FitTrackr/models/workout";
 import WorkoutRepository from "@FitTrackr/repositories/workout/workoutRepository";
-import { nbUser } from "./UserFixtures";
+import { nbUser } from "./userFixtures";
 import Fixture from "./fixture"
 
 export const nbWorkout = 150;

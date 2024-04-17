@@ -1,5 +1,5 @@
-import UserFixtures from "./UserFixtures";
-import WorkoutFixtures from "./WorkoutFixtures";
+import UserFixtures from "./userFixtures";
+import WorkoutFixtures from "./workoutFixtures";
 
 const fixtures = [
     new UserFixtures(),
