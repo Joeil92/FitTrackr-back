@@ -19,7 +19,7 @@ export default class AuthService
 
     public generateToken = (payload: string | object | Buffer) => {
         return jwt.sign(payload, process.env.JWT_SECRET as string, {
-            expiresIn: 36000
+            expiresIn: "365d"
         })
     }
 }

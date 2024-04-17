@@ -5,7 +5,7 @@ import UserRepository from "@FitTrackr/repositories/user/userRepository";
 
 export const nbUser = 100;
 
-export default class UserFixtures extends Fixture implements Fixture
+export default class UserFixtures extends Fixture
 {
     constructor(
         private repository = new UserRepository(),

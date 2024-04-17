@@ -5,7 +5,7 @@ import Fixture from "./fixture"
 
 export const nbWorkout = 150;
 
-export default class WorkoutFixtures extends Fixture implements Fixture
+export default class WorkoutFixtures extends Fixture
 {
     constructor(
         private repository = new WorkoutRepository()

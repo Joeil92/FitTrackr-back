@@ -1,9 +1,11 @@
+import ExerciseFixtures from "./exerciseFixtures";
 import UserFixtures from "./userFixtures";
 import WorkoutFixtures from "./workoutFixtures";
 
 const fixtures = [
     new UserFixtures(),
-    new WorkoutFixtures()
+    new WorkoutFixtures(),
+    new ExerciseFixtures()
 ]
 
 function exitProcess(exitCode: number): void {
