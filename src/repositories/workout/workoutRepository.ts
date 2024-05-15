@@ -18,7 +18,21 @@ export default class WorkoutRepository {
             ]);
         } catch (error) {
             console.log(error);
-            throw new Error('error to querying table : Workout');
+            throw new Error('error to querying table: Workout');
+        } finally {
+            await connect.end();
+        }
+    }
+
+    public async findById(id: string) {
+        const connect = await pool.getConnection();
+        const sql = this.queries.findById;
+
+        try {
+            return connect.query(sql, id);
+        } catch (error) {
+            console.log(error);
+            throw new Error('error to querying table: Workout');
         } finally {
             await connect.end();
         }

@@ -10,7 +10,7 @@ export default class WorkoutCase {
     public async add(workout: WorkoutBody) {
         const isFieldsMissing = (
             !workout.name ||
-            !workout.user_id
+            !workout.user
         );
 
         if (isFieldsMissing) throw new Error('At least one field is missing');
@@ -18,16 +18,14 @@ export default class WorkoutCase {
         const newWorkout = new Workout(
             null,
             workout.name,
-            workout.user_id
+            workout.user
         );
 
         return await this.repository.add(newWorkout)
-            .then(workoutPacket => {
-                return {
-                    id: Number(workoutPacket.insertId),
-                    name: newWorkout.getName(),
-                    user: newWorkout.getUser()
-                }
+            .then(async packet => {
+                const workouts = await this.repository.findById(String(packet.insertId));
+
+                return workouts[0];
             });
     }
 
