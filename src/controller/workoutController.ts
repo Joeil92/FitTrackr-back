@@ -18,6 +18,14 @@ export default class WorkoutController
             .catch(err => next(err));
     }
 
+    public findById = async (req: Request, res: Response, next: NextFunction) => {
+        const id = req.params.id;
+
+        return this.useCase.findById(id)
+            .then(workout => res.json(workout))
+            .catch(err => next(err));
+    }
+
     public findByUser = async (req: Request, res: Response, next: NextFunction) => {
         const userId = req.params.userId;
 

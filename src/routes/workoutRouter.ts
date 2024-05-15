@@ -45,6 +45,27 @@ export default class WorkoutRouter {
 
         /**
          * @swagger
+         * /api/workouts/{id}:
+         *  get:
+         *      tags:
+         *          - Workout
+         *      produces:
+         *          - application/json
+         *      summary: Get workout by id
+         *      parameters:
+         *          - name: id
+         *            in: path
+         *            required: true
+         *            schema:
+         *              type: string
+         *      responses:
+         *          200:
+         *              description: get successfully workout
+         */
+        router.route('/:id').get(authMiddleware, controller.findById);
+
+        /**
+         * @swagger
          * /api/workouts/users/{userId}:
          *  get:
          *      tags:
@@ -53,7 +74,7 @@ export default class WorkoutRouter {
          *          - application/json
          *      summary: Get workouts by user
          *      parameters:
-         *          - name: id
+         *          - name: userId
          *            in: path
          *            required: true
          *            schema:

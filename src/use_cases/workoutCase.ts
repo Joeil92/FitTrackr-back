@@ -29,6 +29,13 @@ export default class WorkoutCase {
             });
     }
 
+    public async findById(id: string) {
+        if (!Number(id)) throw new Error('Invalid identifier');
+
+        return await this.repository.findById(id)
+            .then(workouts => workouts[0]);
+    }
+
     public async findByUser(userId: string) {
         if (!Number(userId)) throw new Error('Invalid identifier');
 
