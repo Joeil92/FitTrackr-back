@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import WorkoutCase from "@FitTrackr/use_cases/workoutCase";
-import { WorkoutBody } from "@FitTrackr/types/workout.interface";
 
 export default class WorkoutController
 {
@@ -9,13 +8,21 @@ export default class WorkoutController
     ) {}
 
     public add = async (req: Request, res: Response, next: NextFunction) => {
-        const body = req.body as WorkoutBody
+        const body = req.body
 
         return this.useCase.add(body)
             .then(workout => res.json({
                 message: 'Workout has been added',
                 data: workout
             }))
+            .catch(err => next(err));
+    }
+
+    public findByUser = async (req: Request, res: Response, next: NextFunction) => {
+        const userId = req.params.userId;
+
+        return this.useCase.findByUser(userId)
+            .then(workouts => res.json(workouts))
             .catch(err => next(err));
     }
 }

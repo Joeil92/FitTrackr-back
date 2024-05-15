@@ -2,11 +2,10 @@ import express from "express";
 import authMiddleware from "../middlewares/authMiddleware";
 import WorkoutController from "../controller/workoutController";
 
-export default class WorkoutRouter
-{
+export default class WorkoutRouter {
     constructor(
         private controller = new WorkoutController()
-    ) {}
+    ) { }
 
     /**
      * @swagger
@@ -43,6 +42,27 @@ export default class WorkoutRouter
          *              description: new Workout added
          */
         router.route('/').post(authMiddleware, controller.add);
+
+        /**
+         * @swagger
+         * /api/workouts/users/{userId}:
+         *  get:
+         *      tags:
+         *          - Workout
+         *      produces:
+         *          - application/json
+         *      summary: Get workouts by user
+         *      parameters:
+         *          - name: id
+         *            in: path
+         *            required: true
+         *            schema:
+         *              type: string
+         *      responses:
+         *          200:
+         *              description: get successfully workouts by user
+         */
+        router.route('/users/:userId').get(authMiddleware, controller.findByUser);
 
         return router;
     }

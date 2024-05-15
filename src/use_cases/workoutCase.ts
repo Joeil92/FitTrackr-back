@@ -2,11 +2,10 @@ import Workout from "../models/workout";
 import WorkoutRepository from "../repositories/workout/workoutRepository";
 import { WorkoutBody } from "../shared/types/workout.interface";
 
-export default class WorkoutCase
-{
+export default class WorkoutCase {
     constructor(
         private repository = new WorkoutRepository()
-    ) {}
+    ) { }
 
     public async add(workout: WorkoutBody) {
         const isFieldsMissing = (
@@ -14,7 +13,7 @@ export default class WorkoutCase
             !workout.user_id
         );
 
-        if(isFieldsMissing) throw new Error('At least one field is missing');
+        if (isFieldsMissing) throw new Error('At least one field is missing');
 
         const newWorkout = new Workout(
             null,
@@ -25,10 +24,16 @@ export default class WorkoutCase
         return await this.repository.add(newWorkout)
             .then(workoutPacket => {
                 return {
-                    id: parseInt(workoutPacket.insertId),
+                    id: Number(workoutPacket.insertId),
                     name: newWorkout.getName(),
                     user: newWorkout.getUser()
                 }
             });
+    }
+
+    public async findByUser(userId: string) {
+        if (!Number(userId)) throw new Error('Invalid identifier');
+
+        return await this.repository.findByUser(userId);
     }
 }
